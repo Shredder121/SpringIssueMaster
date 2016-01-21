@@ -1,0 +1,23 @@
+apply plugin: 'groovy'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+buildscript {
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.8.RELEASE")
+	}
+	repositories {
+		mavenCentral()
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile("com.github.shredder121:gh-event-api:0.3")
+	compile 'org.codehaus.groovy:groovy-all:2.4.4'
+}
