@@ -5,8 +5,8 @@ import org.springframework.core.env.Environment
 import org.springframework.web.client.RestTemplate
 
 import com.github.shredder121.gh_event_api.GHEventApiServer
+import com.github.shredder121.gh_event_api.handler.issues.IssuesHandler
 import com.github.shredder121.gh_event_api.handler.pull_request.PullRequestHandler
-//import com.github.shredder121.gh_event_api.handler.issues.IssuesHandler
 
 /**
  * Webhook implementation based on the Spring Issuemaster behavior.
@@ -26,14 +26,14 @@ class Application {
 		}
 	}
 
-//	@Bean IssuesHandler issuesHandler() {
-//		def bean = { payload ->
-//			if (payload.action == 'opened') {
-//				def issue = payload.issue
-//				handleOpenedIssueOrPr(issue.url)
-//			}
-//		}
-//	}
+	@Bean IssuesHandler issuesHandler() {
+		def bean = { payload ->
+			if (payload.action == 'opened') {
+				def issue = payload.issue
+				handleOpenedIssueOrPr(issue.url)
+			}
+		}
+	}
 
     @Bean RestTemplate restTemplate(Environment env) {
 		def user = env.getRequiredProperty('github_user')

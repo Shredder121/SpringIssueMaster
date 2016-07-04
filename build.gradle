@@ -19,6 +19,6 @@ repositories {
 }
 
 dependencies {
-	compile("com.github.shredder121:gh-event-api:0.3")
+	compile 'com.github.shredder121:gh-event-api:0.5'
 	compile 'org.codehaus.groovy:groovy-all:2.4.4'
 }
